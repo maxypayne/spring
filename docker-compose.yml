@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: maxim
+      POSTGRES_USER: maxim
+      POSTGRES_PASSWORD: maxim
+    ports:
+      - ${POSTGRES_PORT}:5438
