@@ -246,8 +246,8 @@ where last_name is 'Maroni';
     title varchar(150) not null,
     slug varchar(150) not null unique,
     content text default "Maxim"
-    category_id INTEGER
-    FOREIGN KEY(category_id) references categories(id) on delete cascade -- set null
+    category_id INTEGER references categories(id) on delete cascade
+    FOREIGN KEY(category_id) -- set null
  )
 
 
