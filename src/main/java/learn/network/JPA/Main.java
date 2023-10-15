@@ -1,26 +1,22 @@
-package learn.network;
+package learn.network.JPA;
 
 import com.maxim.api.models.Student;
 import jakarta.persistence.*;
 
-@Entity(name = "jpaConnection")
-@Table(name = "users")
-public class JpaConnection {
-    EntityManager entityManager;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
-    private int id;
+import java.util.Arrays;
 
-    @Column(name="firstName")
-    private String firstName;
-
-    @Column(name="lastName")
-    private String lastName;
-
-    @Column(name="email")
-    private String email;
-    public String[] getNames() {
-        return this.entityManager.find(Student.class, "email");
+public class Main {
+    public static void main(String[] args) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("postgres");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        StudentEntity student = new StudentEntity();
+        student.setFirstName("Maxim");
+        student.setLastName("Lucov");
+        student.setEmail("maximlucov+1@gmail.com");
+        em.persist(student);
+        em.close();
+        emf.close();
     }
 }

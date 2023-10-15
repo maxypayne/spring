@@ -1,6 +1,14 @@
 package learn.files;
 
-public class CountFilesMetadata  implements JavaFileAnalysis {
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+
+public class CodeAnalyzer implements JavaFileAnalysis {
     private int lineCount;
     private int maxLineWidth;
     private int widestLineNumber;
@@ -41,3 +49,38 @@ public class CountFilesMetadata  implements JavaFileAnalysis {
             widestLineNumber = lineCount;
         }
     }
+    public int getLineCount() {
+        return lineCount;
+    }
+    public int getMaxLineWidth() {
+        return maxLineWidth;
+    }
+    public int getWidestLineNumber() {
+        return widestLineNumber;
+    }
+    public LineWidthHistogram getLineWidthHistogram() {
+        return lineWidthHistogram;
+    }
+    public double getMeanLineWidth() {
+        return (double)totalChars/lineCount;
+    }
+    public int getMedianLineWidth() {
+        Integer[] sortedWidths = getSortedWidths();
+        int cumulativeLineCount = 0;
+        for (int width : sortedWidths) {
+            cumulativeLineCount += lineCountForWidth(width);
+            if (cumulativeLineCount > lineCount/2)
+                return width;
+        }
+        throw new Error("Cannot get here");
+    }
+    private int lineCountForWidth(int width) {
+        return lineWidthHistogram.getLinesforWidth(width).size();
+    }
+    private Integer[] getSortedWidths() {
+        Set<Integer> widths = lineWidthHistogram.getWidths();
+        Integer[] sortedWidths = (widths.toArray(new Integer[0]));
+        Arrays.sort(sortedWidths);
+        return sortedWidths;
+    }
+}

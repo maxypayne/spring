@@ -12,7 +12,7 @@ import java.util.List;
         value = "/students",
         produces = "application/json"
 )
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class StudentController {
     StudentRepository studentService;
     @Autowired
@@ -22,6 +22,7 @@ public class StudentController {
     @GetMapping()
     public List<Student> getStudents() {
         List<Student> students = null;
+        System.out.println("get students");
         try {
             students = studentService.findAll();
             System.out.println("students");

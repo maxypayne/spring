@@ -1,10 +1,9 @@
-xemple :
-        <?xml version="1.0"  encoding="UTF-8"?>
+<?xml version="1.0"  encoding="UTF-8"?>
 <persistence  xmlns="http://java.sun.com/xml/ns/persistence"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               version="1.0"  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
               http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
-    <persistence-unit  name="MaBaseDeTestPU">
+    <persistence-unit  name="postgres">
         <provider>oracle.toplink.essentials.PersistenceProvider</provider>
         <class>fr.jmdoudoux.dej.jpa.Adresse</class>
         <class>fr.jmdoudoux.dej.jpa.Personne</class>

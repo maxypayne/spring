@@ -1,7 +1,8 @@
 package learn;
 
-import java.io.BufferedReader;
-import java.io.IOException;
+import learn.annotations.MyAnnotation;
+
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -19,7 +20,9 @@ public class Streams {
         bytesToHex();
     }
     public static void main(String[] args) {
-        handleArray();
+//        handleArray();
+//        write();
+        read();
     }
     public void bytesToHex () {
 //        char hexDigit[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
@@ -72,5 +75,25 @@ public class Streams {
         }
         System.out.println("Total: " + somme);
         Stream<Integer> stream = Stream.of(2,3,4);
+    }
+    public static void write() {
+        try {
+            FileWriter writer = new FileWriter("createdByFileWriter.txt");
+            writer.write(3);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public static void read() {
+        try {
+            FileReader reader = new FileReader("createdByFileWriter.txt");
+            BufferedReader buffer = new BufferedReader(reader);
+            String line ;
+            while ((line = buffer.readLine()) != null) {
+                System.out.println("Readed line : " + line);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

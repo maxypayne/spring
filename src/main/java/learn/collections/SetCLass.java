@@ -1,2 +1,4 @@
-package learn.collections;public class SetCLass {
+package learn.collections;
+
+public class SetCLass {
 }

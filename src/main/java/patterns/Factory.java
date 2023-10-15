@@ -1,2 +1,4 @@
-package patterns;public class Factory {
+package patterns;
+
+public class Factory {
 }

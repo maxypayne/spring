@@ -1,2 +1,4 @@
-package learn.collections;public class SortedMapClass {
+package learn.collections;
+
+public class SortedMapClass {
 }

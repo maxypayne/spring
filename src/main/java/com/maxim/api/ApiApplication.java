@@ -6,6 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApiApplication.class, args);
+		int f = 45;
+		int g= 54;
+		double h = (double) f / g;
 	}
 //	@Bean
 //	CommandLineRunner init(FileSystemStorageService storageService) {

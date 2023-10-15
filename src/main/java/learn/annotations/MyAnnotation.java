@@ -1,2 +1,6 @@
-package learn.annotations;public @interface MyAnnotation {
+package learn.annotations;
+
+public @interface MyAnnotation {
+    String arg1();
+    String arg2();
 }
