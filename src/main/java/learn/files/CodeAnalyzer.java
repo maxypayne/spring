@@ -8,14 +8,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-public class CodeAnalyzer implements JavaFileAnalysis {
+public class CodeAnalyzer {
     private int lineCount;
     private int maxLineWidth;
     private int widestLineNumber;
-    private LineWidthHistogram lineWidthHistogram;
     private int totalChars;
     public CodeAnalyzer() {
-        lineWidthHistogram = new LineWidthHistogram();
+
     }
     public static List<File> findJavaFiles(File parentDirectory) {
         List<File> files = new ArrayList<File>();
@@ -40,7 +39,7 @@ public class CodeAnalyzer implements JavaFileAnalysis {
         lineCount++;
         int lineSize = line.length();
         totalChars += lineSize;
-        lineWidthHistogram.addLine(lineSize, lineCount);
+//        lineWidthHistogram.addLine(lineSize, lineCount);
         recordWidestLine(lineSize);
     }
     private void recordWidestLine(int lineSize) {
@@ -58,9 +57,9 @@ public class CodeAnalyzer implements JavaFileAnalysis {
     public int getWidestLineNumber() {
         return widestLineNumber;
     }
-    public LineWidthHistogram getLineWidthHistogram() {
-        return lineWidthHistogram;
-    }
+//    public LineWidthHistogram getLineWidthHistogram() {
+//        return lineWidthHistogram;
+//    }
     public double getMeanLineWidth() {
         return (double)totalChars/lineCount;
     }
@@ -75,12 +74,13 @@ public class CodeAnalyzer implements JavaFileAnalysis {
         throw new Error("Cannot get here");
     }
     private int lineCountForWidth(int width) {
-        return lineWidthHistogram.getLinesforWidth(width).size();
+        return 1;
     }
     private Integer[] getSortedWidths() {
-        Set<Integer> widths = lineWidthHistogram.getWidths();
-        Integer[] sortedWidths = (widths.toArray(new Integer[0]));
-        Arrays.sort(sortedWidths);
-        return sortedWidths;
+//        Set<Integer> widths = lineWidthHistogram.getWidths();
+//        Integer[] sortedWidths = (widths.toArray(new Integer[0]));
+//        Arrays.sort(sortedWidths);
+//        return sortedWidths;
+        return new Integer[0];
     }
 }

@@ -1,9 +1,8 @@
 package learn.serialisation;
 
 import java.io.Serializable;
-import java.util.Locale;
 
-public class Person implements Serializable {
+public class SerializablePerson implements Serializable {
     private static final long serialVersionUID = 1L;
     private String nom    = "";
     private String prenom = "";
@@ -19,7 +18,7 @@ public class Person implements Serializable {
     private String secretCode = "";
     private int    taille = 0;
 
-    public Person(final String nom, final String prenom, final int taille, String secretCode) {
+    public SerializablePerson(final String nom, final String prenom, final int taille, String secretCode) {
         this.nom = nom;
         this.taille = taille;
         this.prenom = prenom;

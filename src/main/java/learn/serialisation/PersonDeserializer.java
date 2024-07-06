@@ -12,7 +12,7 @@ public class PersonDeserializer {
             final FileInputStream fichier = new FileInputStream("person.ser");
             ois = new ObjectInputStream(fichier);
             System.out.println(ois.available());
-            final Person person = (Person) ois.readObject();
+            final SerializablePerson person = (SerializablePerson) ois.readObject();
             System.out.println("Personne : ");
             System.out.println("nom : " + person.getNom());
             System.out.println("prenom : " + person.getPrenom());

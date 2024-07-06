@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 
 public class PersonSerializator {
     public static void main(String[] args) {
-        final Person maxim = new Person("Ludcov", "Maximka", 170, "nope");
+        final SerializablePerson maxim = new SerializablePerson("Ludcov", "Maximka", 170, "nope");
         ObjectOutputStream oos = null;
         try {
             final FileOutputStream fichier = new FileOutputStream("person.ser");

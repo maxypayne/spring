@@ -4,7 +4,7 @@ import java.io.*;
 
 public class PersonSerDeser {
     public static void main(String[] args) {
-        Person personne = new Person("Dupond", "Jean", 175, "1234");
+        SerializablePerson personne = new SerializablePerson("Dupond", "Jean", 175, "1234");
         ObjectOutputStream oos = null;
         ObjectInputStream ois = null;
 
@@ -15,7 +15,7 @@ public class PersonSerDeser {
             oos.flush();
             final FileInputStream fichierIn = new FileInputStream("personne.ser");
             ois = new ObjectInputStream(fichierIn);
-            personne = (Person) ois.readObject();
+            personne = (SerializablePerson) ois.readObject();
             System.out.println("Personne : ");
             System.out.println("nom : " + personne.getNom());
             System.out.println("prenom : " + personne.getPrenom());

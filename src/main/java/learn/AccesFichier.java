@@ -12,11 +12,11 @@ public class AccesFichier {
             System.out.println("Error" + e.getMessage());
         }
     }
-    protected void finalize() throws Throwable {
-        super.finalize(); // obligatoire : appel finalize heritee
-        System.out.println("Appel de la méthode finalize");
-        termine();
-    }
+//    protected void finalize() throws Throwable {
+//        super.finalize(); // obligatoire : appel finalize heritee
+//        System.out.println("Appel de la méthode finalize");
+//        termine();
+//    }
 
     public static void main(String[] args) {
         AccesFichier af = new AccesFichier("./data.txt");

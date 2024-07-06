@@ -9,6 +9,9 @@ import jakarta.validation.constraints.Size;
         import jakarta.validation.constraints.Email;
         import jakarta.validation.constraints.NotBlank;
         import jakarta.validation.constraints.Size;
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.Collection;
 
 @Entity
 @Table(name = "userEntity")
@@ -81,5 +84,9 @@ public class UserEntity {
 
     public void setEnabled(int enabled) {
         this.enabled = enabled;
+    }
+
+    public Collection<? extends GrantedAuthority> roles() {
+        return null;
     }
 }

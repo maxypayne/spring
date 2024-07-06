@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/todoType")
 public class TodoTypeController {
@@ -19,6 +21,10 @@ public class TodoTypeController {
     public TodoTypeController(TodoService todoService, TodoTypeService todoTypeService) {
         this.todoService = todoService;
         this.todoTypeService = todoTypeService;
+    }
+    @GetMapping(value = "/", produces = {"application/json", "application/xml"})
+    public List<TodoType> getAll() {
+        return todoTypeService.getAll();
     }
     @GetMapping(value = "/read", produces = {"application/json", "application/xml"})
     public TodoType readTodoType() {

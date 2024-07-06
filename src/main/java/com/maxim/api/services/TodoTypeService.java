@@ -3,6 +3,8 @@ import com.maxim.api.dao.TodoTypeDAO;
 import com.maxim.api.entities.TodoType;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TodoTypeService {
     TodoTypeDAO dao;
@@ -29,6 +31,9 @@ public class TodoTypeService {
         return "Can't find todo";
     }
 
+    public List<TodoType> getAll() {
+        return this.dao.findAll();
+    }
     public void deleteByCode(String code) throws Exception {
         dao.deleteByCode(code);
     }

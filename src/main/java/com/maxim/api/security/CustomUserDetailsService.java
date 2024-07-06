@@ -23,6 +23,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         return new User(user.getUsername(), user.getPassword(), user.roles());
     };
     Collection <GrantedAuthority> mapRolesToAuthority(List<Role> roles) {
-        return roles.stream();
+//        return roles.stream();
+        return null;
     };
 }

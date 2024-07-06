@@ -19,7 +19,7 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET).permiteAll().hasRole()
+//                .antMatchers(HttpMethod.GET).permiteAll().hasRole()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();

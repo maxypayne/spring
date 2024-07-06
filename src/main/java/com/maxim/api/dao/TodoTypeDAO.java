@@ -3,6 +3,7 @@ package com.maxim.api.dao;
 import com.maxim.api.entities.TodoType;
 import com.maxim.api.repositories.TodoTypeRepository;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
@@ -20,6 +21,11 @@ public class TodoTypeDAO implements TodoTypeRepository {
 
     public TodoType findByCode(String code) {
         return this.entity.find(TodoType.class, code);
+    }
+
+    public List<TodoType> findAll() {
+        TypedQuery<TodoType> query = entity.createQuery("from TodoType ", TodoType.class);
+        return query.getResultList();
     }
 
     public void update(TodoType todo) {
