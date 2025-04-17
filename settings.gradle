@@ -3,3 +3,12 @@
  */
 
 rootProject.name = 'api'
+include 'src:main:arrays'
+findProject(':src:main:arrays')?.name = 'arrays'
+include 'src:main:arrays'
+findProject(':src:main:arrays')?.name = 'arrays'
+include 'src:main:untitled'
+findProject(':src:main:untitled')?.name = 'untitled'
+include 'src:main:arrays'
+findProject(':src:main:arrays')?.name = 'arrays'
+
