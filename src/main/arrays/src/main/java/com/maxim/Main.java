@@ -28,6 +28,10 @@ public class Main {
         // exos
         sumArray(data);
         findMaxAndMin(data);
+        fillArray(6, 78);
+        removeDuplicates();
+        reverseAnArray();
+        secondLargest();
     }
 
     private static void sumArray(int[] data) {
@@ -53,10 +57,10 @@ public class Main {
         System.out.println(res);
     }
 
-    private static void fillArray(int value) {
-        int[] arrToFill;
-        Arrays.fill(arrToFill, valuee);
-        System.out.println(arrToFill);
+    private static void fillArray(int size, int value) {
+        int[] arrToFill = new int[size];
+        Arrays.fill(arrToFill, value);
+        System.out.println(Arrays.toString(arrToFill));
     }
     private static void binarySearch(int[] arr, int target) {
         // Write a method that:
@@ -69,31 +73,44 @@ public class Main {
         // -Searches for a specific number using Arrays.binarySearch().
     }
     private static void removeDuplicates() {
-        int[] arr = new int[10];
+        int[] arr = {1,2,34,9,2,55,8,12,34};
+        System.out.println("remove duplicates");
+        System.out.println(Arrays.toString(arr));
+        int futureIndexForArray = 0;
+        int[] tmp = new int[arr.length];
+        Arrays.sort(arr);
+        for (int i = 0; i < arr.length; i++) {
+            if (i == arr.length - 1 || arr[i] != arr[i + 1]) {
+                tmp[futureIndexForArray] = arr[i];
+                futureIndexForArray++;
+            }
+        }
+        System.out.println("Arrays.toString(tmp)");
+        System.out.println(Arrays.toString(tmp));
+        int[] arrWithoutDuplicates = new int[futureIndexForArray];
+        for (int i = 0; i < futureIndexForArray; i++) {
+            arrWithoutDuplicates[i] = tmp[i];
+        }
+        System.out.println("Arrays.toString(arrWithoutDuplicates)");
+        System.out.println(Arrays.toString(arrWithoutDuplicates));
+
     }
-    private static void reverseAnArray(int[] arr) {
-        int[] copy = Arrays.copyOf(arr, arr.length);
+    private static void reverseAnArray() {
+        System.out.println();
+        System.out.println("*************Reversed array***********");
+        int[] arr = {1,2,34,9,2,55,8,12,34};
         int[] reversed = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
-//            reversed.
+            reversed[i] = arr[arr.length - 1 - i];
         }
+        System.out.println(Arrays.toString(reversed));
     }
-    /**
-     * 1. Find the second largest number in the array.
-     * If the array has duplicates, ignore them for ranking.
-     */
-    public static int secondLargest(int[] arr) {
+    public static void secondLargest() {
         // Your code here
-        return 0;
-    }
-
-    /**
-     * 2. Check if the array is a palindrome.
-     * Return true if the array reads the same forward and backward.
-     */
-    public static boolean isPalindrome(int[] arr) {
-        // Your code here
-        return false;
+        int[] arr = {1,2,34,9,2,55,8,12,34};
+        Arrays.sort(arr);
+        System.out.println("****************Second largest**************");
+        System.out.println(arr[arr.length - 2]);
     }
 
     /**
